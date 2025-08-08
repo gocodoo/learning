@@ -47,4 +47,8 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function generateCodeTwoFactor(){
+        $this->token_2fa = rand(100000,999999);
+    }
 }

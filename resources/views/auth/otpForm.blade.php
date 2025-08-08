@@ -9,11 +9,11 @@
 
 <body>
     <h1>Verify OTP</h1>
-    <form action="{{ route('verify.index') }}" method="post">
+    <form action="{{ route('verify.otp') }}" method="post">
         @csrf
         <div>
             <label for="">OTP</label>
-            <input type="text" name="otp_code">
+            <input type="text" name="token_2fa">
         </div>
         <div>
             <button type="submit">Verify</button>

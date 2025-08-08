@@ -22,3 +22,4 @@ Route::get('/admin/login', [AuthController::class, 'login'])->name('login');
 Route::get('/admin/logout', [AuthController::class, 'logout'])->name('logout');
 Route::post('/auth', [AuthController::class, 'auth'])->name('auth');
 Route::get('/admin/verify', [OtpController::class, 'otpForm'])->name('verify.index');
+Route::post('/admin/verify/otp', [OtpController::class, 'processOtp'])->name('verify.otp');
