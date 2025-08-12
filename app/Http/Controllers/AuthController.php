@@ -23,9 +23,12 @@ class AuthController extends Controller
         if (!Hash::check($request->password, $user->password)) {
             return redirect()->back()->with('error', 'Incorrect ');
         }
+
+        //   Log the user in
+        Auth::login($user);
         $user->generateCodeTwoFactor();
         $user->save();
-        return redirect()->route('verify.index', ['id' => json_encode( $user["id"])]);
+        return redirect()->route('verify.index', ['id' => $user["id"]]);
     }
 
     public function logout(Request $request)
