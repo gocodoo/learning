@@ -16,18 +16,6 @@ class AdminMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
-        $user = Auth::user(); 
-        if(config('auth.enable_otp')){
-            if (Auth::check() && $user) {
-                return redirect()->route('verify.index');
-            }
-            else {
-                abort(403, 'Unauthorized access.');
-            }
-        }else{
-            if(Auth::check() && $user) {
-                return $next($request);
-            }
-        }
+        return $next($request);
     }
 }

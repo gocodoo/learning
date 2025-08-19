@@ -25,7 +25,7 @@ class AuthController extends Controller
         }
 
         //   Log the user in
-        Auth::login($user);
+        // Auth::login($user);
         $user->generateCodeTwoFactor();
         $user->save();
         return redirect()->route('verify.index', ['id' => $user["id"]]);
